@@ -3,6 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+from st_aggrid import AgGrid
 
 """
 # Welcome to Streamlit!
@@ -36,3 +37,9 @@ with st.echo(code_location='below'):
     st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
+
+
+with st.sidebar:
+    pp_date=st.date_input("排盘日期",pdlm.now(tz='Asia/Shanghai').date())
+    pp_time=st.time_input("排盘时间",pdlm.now(tz='Asia/Shanghai').time())
+    
